@@ -5,17 +5,36 @@
 //  Created by Jiaming Guo on 2022-09-26.
 //
 
+import CoreImage
+import CoreImage.CIFilterBuiltins
 import SwiftUI
 
 struct ContentView: View {
+    @State private var image: Image?
+    @State private var showingImagePicker = false
+    @State private var inputImage: UIImage?
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
+    }
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            image?
+                .resizable()
+                .scaledToFit()
+            Button("Select Image") {
+                showingImagePicker = true
+            }
         }
         .padding()
+        .sheet(isPresented: $showingImagePicker, content: {
+            ImagePicker(image: $inputImage)
+        })
+        .onChange(of: inputImage, perform: { _ in
+            loadImage()
+        })
     }
 }
 

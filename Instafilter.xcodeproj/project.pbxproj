@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C99FD2E828EE568D0094655F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FD2E728EE568D0094655F /* ImagePicker.swift */; };
 		C9FE35D528E29AF50054A72E /* InstafilterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE35D428E29AF50054A72E /* InstafilterApp.swift */; };
 		C9FE35D728E29AF50054A72E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE35D628E29AF50054A72E /* ContentView.swift */; };
 		C9FE35D928E29AF60054A72E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FE35D828E29AF60054A72E /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C99FD2E728EE568D0094655F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C9FE35D128E29AF50054A72E /* Instafilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instafilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FE35D428E29AF50054A72E /* InstafilterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstafilterApp.swift; sourceTree = "<group>"; };
 		C9FE35D628E29AF50054A72E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C99FD2E928EE5F920094655F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C99FD2E728EE568D0094655F /* ImagePicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C9FE35C828E29AF50054A72E = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		C9FE35D328E29AF50054A72E /* Instafilter */ = {
 			isa = PBXGroup;
 			children = (
+				C99FD2E928EE5F920094655F /* Views */,
 				C9FE35D428E29AF50054A72E /* InstafilterApp.swift */,
 				C9FE35D628E29AF50054A72E /* ContentView.swift */,
 				C9FE35D828E29AF60054A72E /* Assets.xcassets */,
@@ -257,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C99FD2E828EE568D0094655F /* ImagePicker.swift in Sources */,
 				C9FE35D728E29AF50054A72E /* ContentView.swift in Sources */,
 				C9FE35D528E29AF50054A72E /* InstafilterApp.swift in Sources */,
 			);
