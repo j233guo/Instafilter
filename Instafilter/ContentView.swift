@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var showingFilterSheet = false
-    
+    @State private var processedImage: UIImage?
     let context = CIContext()
     
     func loadImage() {
@@ -41,6 +41,7 @@ struct ContentView: View {
         if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
             let uiImage = UIImage(cgImage: cgimg)
             image = Image(uiImage: uiImage)
+            processedImage = uiImage
         }
     }
     
@@ -49,7 +50,17 @@ struct ContentView: View {
         loadImage()
     }
     
-    func save() { }
+    func save() {
+        guard let processedImage = processedImage else { return }
+        let imageSaver = ImageSaver()
+        imageSaver.errorHandler = { _ in
+            print("Failed")
+        }
+        imageSaver.successHandler = {
+            print("Success")
+        }
+        imageSaver.writeToPhotoAlbum(image: processedImage)
+    }
     
     var body: some View {
         NavigationView {

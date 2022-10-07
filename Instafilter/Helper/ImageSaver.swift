@@ -12,10 +12,10 @@ class ImageSaver: NSObject {
     var errorHandler: ((Error) -> Void)?
     
     func writeToPhotoAlbum(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveComplete), nil)
     }
     
-    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    @objc func saveComplete(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
             errorHandler?(error)
         } else {
