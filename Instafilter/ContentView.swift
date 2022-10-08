@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var showingFilterSheet = false
     @State private var processedImage: UIImage?
+    
     let context = CIContext()
     
     func loadImage() {
@@ -79,22 +80,25 @@ struct ContentView: View {
                     showingImagePicker = true
                 }
                 
-                HStack {
-                    Text("Intensity")
-                    Slider(value: $filterIntensity)
-                        .onChange(of: filterIntensity, perform: { _ in
-                            applyProcessing()
-                        })
-                }
-                .padding(.vertical)
-                
-                HStack {
-                    Button("Change Filter") {
-                        showingFilterSheet = true
+                if image != nil {
+                    HStack {
+                        Text("Intensity")
+                        Slider(value: $filterIntensity)
+                            .onChange(of: filterIntensity, perform: { _ in
+                                applyProcessing()
+                            })
                     }
-                    Spacer()
-                    Button("Save", action: save)
+                    .padding(.vertical)
+                    
+                    HStack {
+                        Button("Change Filter") {
+                            showingFilterSheet = true
+                        }
+                        Spacer()
+                        Button("Save", action: save)
+                    }
                 }
+                
             }
             .padding([.horizontal, .bottom])
             .navigationTitle("Instafilter")
